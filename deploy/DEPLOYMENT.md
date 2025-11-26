@@ -122,8 +122,9 @@ sudo ./deploy/deploy.sh
 
 Script ini akan:
 - Install dependencies (Composer & NPM)
-- `npm ci --omit=dev` jika `package-lock.json` tersedia, fallback ke `npm install --production` bila tidak ada
+- `npm ci` (termasuk devDependencies) jika `package-lock.json` tersedia, fallback ke `npm install` bila tidak ada
 - Build assets
+- `npm prune --production` untuk menghapus devDependencies setelah build
 - Optimize Laravel
 - Run migrations
 - Setup permissions
