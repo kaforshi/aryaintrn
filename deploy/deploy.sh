@@ -42,7 +42,12 @@ echo -e "${YELLOW}[1/7] Install Composer dependencies...${NC}"
 sudo -u $APP_USER composer install --no-dev --optimize-autoloader
 
 echo -e "${YELLOW}[2/7] Install NPM dependencies...${NC}"
-sudo -u $APP_USER npm ci --production
+if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+    sudo -u $APP_USER npm ci --omit=dev
+else
+    echo -e "${YELLOW}package-lock.json tidak ditemukan, menggunakan npm install --production${NC}"
+    sudo -u $APP_USER npm install --production
+fi
 
 # Build assets
 echo -e "${YELLOW}[3/7] Build assets...${NC}"

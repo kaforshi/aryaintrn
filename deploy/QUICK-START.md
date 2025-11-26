@@ -33,11 +33,13 @@ sudo ./deploy/setup-ubuntu.sh
 ```bash
 cd /var/www/aryaintrn
 chmod +x deploy/deploy.sh
-sudo ./deploy/deploy.sh
+    sudo ./deploy/deploy.sh
 ```
 
 Script ini akan:
 - Install dependencies
+- Jika tersedia `package-lock.json`, menggunakan `npm ci --omit=dev`
+- Jika tidak, otomatis fallback ke `npm install --production`
 - Build assets
 - Setup .env dengan konfigurasi production
 - Buat database SQLite
