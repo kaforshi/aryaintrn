@@ -21,7 +21,7 @@ Gunakan checklist ini untuk memastikan semua langkah deployment sudah dilakukan 
 
 ## Database Configuration (SQLite)
 
-- [ ] Database SQLite sudah dibuat di `/var/www/portfolio/database/database.sqlite`
+- [ ] Database SQLite sudah dibuat di `/var/www/aryaintrn/database/database.sqlite`
 - [ ] File database memiliki permission yang benar (664)
 - [ ] File database dimiliki oleh user `website`
 
@@ -37,7 +37,7 @@ Gunakan checklist ini untuk memastikan semua langkah deployment sudah dilakukan 
 
 ## Application Deployment
 
-- [ ] Aplikasi sudah di-clone/upload ke `/var/www/portfolio`
+- [ ] Aplikasi sudah di-clone/upload ke `/var/www/aryaintrn`
 - [ ] Script `deploy.sh` sudah dijalankan
 - [ ] File `.env` sudah dibuat dan dikonfigurasi
 - [ ] `APP_KEY` sudah di-generate
@@ -56,9 +56,9 @@ Gunakan checklist ini untuk memastikan semua langkah deployment sudah dilakukan 
 - [ ] File `laravel.service` sudah di-copy ke `/etc/systemd/system/`
 - [ ] Service file sudah dikonfigurasi untuk user `website` dan port `8000`
 - [ ] `systemctl daemon-reload` sudah dijalankan
-- [ ] Service sudah di-enable: `systemctl enable laravel-portfolio`
-- [ ] Service sudah di-start: `systemctl start laravel-portfolio`
-- [ ] Service status sudah dicek: `systemctl status laravel-portfolio`
+- [ ] Service sudah di-enable: `systemctl enable laravel-aryaintrn`
+- [ ] Service sudah di-start: `systemctl start laravel-aryaintrn`
+- [ ] Service status sudah dicek: `systemctl status laravel-aryaintrn`
 - [ ] Service berjalan dengan baik
 
 ## Cloudflare Tunnel

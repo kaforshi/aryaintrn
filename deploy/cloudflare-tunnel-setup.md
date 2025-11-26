@@ -1,6 +1,6 @@
 # Setup Cloudflare Tunnel
 
-Panduan lengkap untuk setup Cloudflare Tunnel untuk aplikasi Laravel Portfolio.
+Panduan lengkap untuk setup Cloudflare Tunnel untuk aplikasi Laravel Aryaintrn.
 
 ## Prerequisites
 
@@ -35,13 +35,13 @@ Ini akan membuka browser untuk autentikasi. Pilih domain yang akan digunakan.
 3. Masuk ke **Zero Trust** > **Networks** > **Tunnels**
 4. Klik **Create a tunnel**
 5. Pilih **Cloudflared**
-6. Beri nama tunnel (mis: `portfolio-tunnel`)
+6. Beri nama tunnel (mis: `aryaintrn-tunnel`)
 7. Copy **Tunnel ID** dan **Tunnel Token**
 
 **Opsi B: Menggunakan CLI**
 
 ```bash
-sudo cloudflared tunnel create portfolio-tunnel
+sudo cloudflared tunnel create aryaintrn-tunnel
 ```
 
 ### 4. Setup Konfigurasi
@@ -73,7 +73,7 @@ Masukkan token:
   "AccountTag": "YOUR_ACCOUNT_TAG",
   "TunnelSecret": "YOUR_TUNNEL_SECRET",
   "TunnelID": "YOUR_TUNNEL_ID",
-  "TunnelName": "portfolio-tunnel"
+  "TunnelName": "aryaintrn-tunnel"
 }
 ```
 
@@ -140,7 +140,7 @@ sudo cloudflared tunnel --config /etc/cloudflared/config.yml run
 
 1. Pastikan Laravel service berjalan:
 ```bash
-sudo systemctl status laravel-portfolio
+sudo systemctl status laravel-aryaintrn
 ```
 
 2. Cek port aplikasi:

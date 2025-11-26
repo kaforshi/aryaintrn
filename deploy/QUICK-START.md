@@ -1,6 +1,6 @@
 # Quick Start Deployment Guide
 
-Panduan cepat untuk deploy aplikasi Laravel Portfolio ke Ubuntu Server dengan konfigurasi yang sudah diset.
+Panduan cepat untuk deploy aplikasi Laravel Aryaintrn ke Ubuntu Server dengan konfigurasi yang sudah diset.
 
 ## Konfigurasi
 
@@ -19,8 +19,8 @@ Panduan cepat untuk deploy aplikasi Laravel Portfolio ke Ubuntu Server dengan ko
 ssh user@your-server-ip
 
 # Clone aplikasi (atau upload via SCP/SFTP)
-sudo mkdir -p /var/www/portfolio
-cd /var/www/portfolio
+sudo mkdir -p /var/www/aryaintrn
+cd /var/www/aryaintrn
 # Clone atau upload aplikasi ke sini
 
 # Jalankan setup
@@ -31,7 +31,7 @@ sudo ./deploy/setup-ubuntu.sh
 ### 2. Deploy Aplikasi
 
 ```bash
-cd /var/www/portfolio
+cd /var/www/aryaintrn
 chmod +x deploy/deploy.sh
 sudo ./deploy/deploy.sh
 ```
@@ -46,7 +46,7 @@ Script ini akan:
 ### 3. Edit .env
 
 ```bash
-sudo nano /var/www/portfolio/.env
+sudo nano /var/www/aryaintrn/.env
 ```
 
 **PENTING**: Ganti `ADMIN_EMAIL` dan `ADMIN_PASSWORD` dengan nilai yang aman!
@@ -54,11 +54,11 @@ sudo nano /var/www/portfolio/.env
 ### 4. Setup Laravel Service
 
 ```bash
-sudo cp deploy/laravel.service /etc/systemd/system/laravel-portfolio.service
+sudo cp deploy/laravel.service /etc/systemd/system/laravel-aryaintrn.service
 sudo systemctl daemon-reload
-sudo systemctl enable laravel-portfolio
-sudo systemctl start laravel-portfolio
-sudo systemctl status laravel-portfolio
+sudo systemctl enable laravel-aryaintrn
+sudo systemctl start laravel-aryaintrn
+sudo systemctl status laravel-aryaintrn
 ```
 
 ### 5. Setup Cloudflare Tunnel
@@ -89,7 +89,7 @@ sudo systemctl status cloudflared
 
 1. Cek Laravel service:
 ```bash
-sudo systemctl status laravel-portfolio
+sudo systemctl status laravel-aryaintrn
 curl http://127.0.0.1:8000
 ```
 
@@ -105,7 +105,7 @@ sudo systemctl status cloudflared
 ## Update Aplikasi
 
 ```bash
-cd /var/www/portfolio
+cd /var/www/aryaintrn
 sudo ./deploy/update.sh
 ```
 
@@ -115,18 +115,18 @@ sudo ./deploy/update.sh
 
 ```bash
 # Cek logs
-sudo journalctl -u laravel-portfolio -n 50
+sudo journalctl -u laravel-aryaintrn -n 50
 sudo journalctl -u cloudflared -n 50
 
 # Restart services
-sudo systemctl restart laravel-portfolio
+sudo systemctl restart laravel-aryaintrn
 sudo systemctl restart cloudflared
 ```
 
 ### Permission errors
 
 ```bash
-cd /var/www/portfolio
+cd /var/www/aryaintrn
 sudo chown -R website:website .
 sudo chmod -R 755 .
 sudo chmod -R 775 storage bootstrap/cache
@@ -137,6 +137,7 @@ sudo chmod 664 database/database.sqlite
 
 ```bash
 # Pastikan database file ada dan permission benar
+cd /var/www/aryaintrn
 ls -la database/database.sqlite
 sudo chown website:website database/database.sqlite
 sudo chmod 664 database/database.sqlite
@@ -144,7 +145,7 @@ sudo chmod 664 database/database.sqlite
 
 ## File Penting
 
-- `.env` - Konfigurasi aplikasi (di `/var/www/portfolio/.env`)
+- `.env` - Konfigurasi aplikasi (di `/var/www/aryaintrn/.env`)
 - `config.yml` - Konfigurasi Cloudflare Tunnel (di `/etc/cloudflared/config.yml`)
 - `credentials.json` - Cloudflare Tunnel credentials (di `/etc/cloudflared/credentials.json`)
 

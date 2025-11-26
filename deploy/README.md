@@ -1,6 +1,6 @@
 # Deployment Setup untuk Ubuntu Server dengan Cloudflare Tunnel
 
-Folder ini berisi semua file yang diperlukan untuk deploy aplikasi Laravel Portfolio ke Ubuntu Server menggunakan Cloudflare Tunnel.
+Folder ini berisi semua file yang diperlukan untuk deploy aplikasi Laravel Aryaintrn ke Ubuntu Server menggunakan Cloudflare Tunnel.
 
 ## File-file Deployment
 
@@ -8,7 +8,7 @@ Folder ini berisi semua file yang diperlukan untuk deploy aplikasi Laravel Portf
 - **deploy.sh** - Script untuk deploy aplikasi
 - **update.sh** - Script untuk update aplikasi yang sudah terdeploy
 - **create-user.sh** - Script untuk membuat user 'website' (sudah termasuk di setup-ubuntu.sh)
-- **laravel.service** - Systemd service file untuk Laravel (user: website, port: 8000)
+- **laravel.service** - Systemd service file untuk Laravel (user: website, port: 8000, service: laravel-aryaintrn)
 - **cloudflared.service** - Systemd service file untuk Cloudflare Tunnel
 - **config.yml.example** - Contoh konfigurasi Cloudflare Tunnel (domain: aryaintaran.dev)
 - **DEPLOYMENT.md** - Panduan lengkap deployment
@@ -31,10 +31,10 @@ sudo ./deploy/deploy.sh
 3. **Setup services:**
 ```bash
 # Laravel service
-sudo cp deploy/laravel.service /etc/systemd/system/laravel-portfolio.service
+sudo cp deploy/laravel.service /etc/systemd/system/laravel-aryaintrn.service
 sudo systemctl daemon-reload
-sudo systemctl enable laravel-portfolio
-sudo systemctl start laravel-portfolio
+sudo systemctl enable laravel-aryaintrn
+sudo systemctl start laravel-aryaintrn
 
 # Cloudflare Tunnel
 sudo cp deploy/cloudflared.service /etc/systemd/system/cloudflared.service

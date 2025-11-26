@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Setup script untuk deployment Laravel Portfolio ke Ubuntu Server
+# Setup script untuk deployment Laravel Aryaintrn ke Ubuntu Server
 # Pastikan script ini dijalankan dengan sudo atau sebagai root
 
 set -e
 
 echo "========================================="
-echo "Setup Deployment Laravel Portfolio"
+echo "Setup Deployment Laravel Aryaintrn"
 echo "========================================="
 
 # Warna untuk output
@@ -16,7 +16,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Konfigurasi
-APP_NAME="portfolio"
+APP_NAME="aryaintrn"
 APP_USER="website"
 APP_DIR="/var/www/${APP_NAME}"
 PHP_VERSION="8.2"

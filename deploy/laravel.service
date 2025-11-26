@@ -1,12 +1,12 @@
 [Unit]
-Description=Laravel Portfolio Application
+Description=Laravel Aryaintrn Application
 After=network.target php8.2-fpm.service
 
 [Service]
 Type=simple
 User=website
 Group=website
-WorkingDirectory=/var/www/portfolio
+WorkingDirectory=/var/www/aryaintrn
 Environment="APP_ENV=production"
 Environment="APP_DEBUG=false"
 ExecStart=/usr/bin/php8.2 artisan serve --host=127.0.0.1 --port=8000
@@ -14,7 +14,7 @@ Restart=always
 RestartSec=10
 StandardOutput=journal
 StandardError=journal
-SyslogIdentifier=laravel-portfolio
+SyslogIdentifier=laravel-aryaintrn
 
 [Install]
 WantedBy=multi-user.target

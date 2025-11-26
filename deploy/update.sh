@@ -6,7 +6,7 @@
 set -e
 
 # Konfigurasi
-APP_NAME="portfolio"
+APP_NAME="aryaintrn"
 APP_USER="website"
 APP_DIR="/var/www/${APP_NAME}"
 
@@ -17,7 +17,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo -e "${GREEN}=========================================${NC}"
-echo -e "${GREEN}Update Laravel Portfolio${NC}"
+echo -e "${GREEN}Update Laravel Aryaintrn${NC}"
 echo -e "${GREEN}=========================================${NC}"
 
 # Cek apakah direktori aplikasi ada

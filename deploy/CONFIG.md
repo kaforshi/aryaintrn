@@ -4,8 +4,8 @@ File ini berisi ringkasan konfigurasi deployment yang sudah diset.
 
 ## Konfigurasi Aplikasi
 
-- **Nama Aplikasi**: portfolio
-- **Direktori**: `/var/www/portfolio`
+- **Nama Aplikasi**: aryaintrn
+- **Direktori**: `/var/www/aryaintrn`
 - **User**: `website` (user khusus yang akan dibuat otomatis)
 - **Port**: `8000`
 - **PHP Version**: `8.2`
@@ -13,7 +13,7 @@ File ini berisi ringkasan konfigurasi deployment yang sudah diset.
 ## Database
 
 - **Type**: SQLite
-- **Lokasi**: `/var/www/portfolio/database/database.sqlite`
+- **Lokasi**: `/var/www/aryaintrn/database/database.sqlite`
 - **Permission**: `664` (rw-rw-r--)
 - **Owner**: `website:website`
 
@@ -34,10 +34,10 @@ File ini berisi ringkasan konfigurasi deployment yang sudah diset.
 ## Systemd Services
 
 ### Laravel Service
-- **File**: `/etc/systemd/system/laravel-portfolio.service`
+- **File**: `/etc/systemd/system/laravel-aryaintrn.service`
 - **User**: `website`
 - **Group**: `website`
-- **Working Directory**: `/var/www/portfolio`
+- **Working Directory**: `/var/www/aryaintrn`
 - **Command**: `php8.2 artisan serve --host=127.0.0.1 --port=8000`
 
 ### Cloudflare Tunnel Service
@@ -54,7 +54,7 @@ APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://aryaintaran.dev
 DB_CONNECTION=sqlite
-DB_DATABASE=/var/www/portfolio/database/database.sqlite
+DB_DATABASE=/var/www/aryaintrn/database/database.sqlite
 ```
 
 **PENTING**: Setelah deployment, edit file `.env` dan set:
@@ -64,7 +64,7 @@ DB_DATABASE=/var/www/portfolio/database/database.sqlite
 ## File Permissions
 
 ```
-/var/www/portfolio/
+/var/www/aryaintrn/
 ├── . (755, website:website)
 ├── storage/ (775, website:website)
 ├── bootstrap/cache/ (775, website:website)
@@ -75,23 +75,23 @@ DB_DATABASE=/var/www/portfolio/database/database.sqlite
 
 ### Cek Status Services
 ```bash
-sudo systemctl status laravel-portfolio
+sudo systemctl status laravel-aryaintrn
 sudo systemctl status cloudflared
 ```
 
 ### Restart Services
 ```bash
-sudo systemctl restart laravel-portfolio
+sudo systemctl restart laravel-aryaintrn
 sudo systemctl restart cloudflared
 ```
 
 ### View Logs
 ```bash
 # Laravel logs
-tail -f /var/www/portfolio/storage/logs/laravel.log
+tail -f /var/www/aryaintrn/storage/logs/laravel.log
 
 # Laravel service logs
-sudo journalctl -u laravel-portfolio -f
+sudo journalctl -u laravel-aryaintrn -f
 
 # Cloudflare Tunnel logs
 sudo journalctl -u cloudflared -f
@@ -99,7 +99,7 @@ sudo journalctl -u cloudflared -f
 
 ### Update Aplikasi
 ```bash
-cd /var/www/portfolio
+cd /var/www/aryaintrn
 sudo ./deploy/update.sh
 ```
 
@@ -107,13 +107,13 @@ sudo ./deploy/update.sh
 
 ### Service tidak jalan
 ```bash
-sudo systemctl status laravel-portfolio
-sudo journalctl -u laravel-portfolio -n 50
+sudo systemctl status laravel-aryaintrn
+sudo journalctl -u laravel-aryaintrn -n 50
 ```
 
 ### Permission error
 ```bash
-cd /var/www/portfolio
+cd /var/www/aryaintrn
 sudo chown -R website:website .
 sudo chmod -R 755 .
 sudo chmod -R 775 storage bootstrap/cache
@@ -122,8 +122,8 @@ sudo chmod 664 database/database.sqlite
 
 ### Database error
 ```bash
-ls -la /var/www/portfolio/database/database.sqlite
-sudo chown website:website /var/www/portfolio/database/database.sqlite
-sudo chmod 664 /var/www/portfolio/database/database.sqlite
+ls -la /var/www/aryaintrn/database/database.sqlite
+sudo chown website:website /var/www/aryaintrn/database/database.sqlite
+sudo chmod 664 /var/www/aryaintrn/database/database.sqlite
 ```
 

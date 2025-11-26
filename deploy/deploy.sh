@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Script deployment untuk Laravel Portfolio
+# Script deployment untuk Laravel Aryaintrn
 # Jalankan script ini setelah setup-ubuntu.sh
 
 set -e
 
 # Konfigurasi
-APP_NAME="portfolio"
+APP_NAME="aryaintrn"
 APP_USER="website"
 APP_DIR="/var/www/${APP_NAME}"
 APP_PORT="8000"
@@ -19,7 +19,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo -e "${GREEN}=========================================${NC}"
-echo -e "${GREEN}Deploy Laravel Portfolio${NC}"
+echo -e "${GREEN}Deploy Laravel Aryaintrn${NC}"
 echo -e "${GREEN}=========================================${NC}"
 
 # Cek apakah direktori aplikasi ada
@@ -111,8 +111,8 @@ echo "1. Edit file .env di $APP_DIR dan sesuaikan konfigurasi"
 echo "2. Setup systemd service untuk Laravel (lihat deploy/laravel.service)"
 echo "3. Setup Cloudflare Tunnel (lihat deploy/cloudflare-tunnel-setup.md)"
 echo "4. Start services:"
-echo "   sudo systemctl enable laravel-${APP_NAME}"
-echo "   sudo systemctl start laravel-${APP_NAME}"
+echo "   sudo systemctl enable laravel-aryaintrn"
+echo "   sudo systemctl start laravel-aryaintrn"
 echo "   sudo systemctl enable cloudflared"
 echo "   sudo systemctl start cloudflared"
 echo ""
