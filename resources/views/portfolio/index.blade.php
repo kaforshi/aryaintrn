@@ -11,7 +11,8 @@
     <!-- Google Fonts: JetBrains Mono (Khas Developer/Hype) & Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="portfolio-page min-h-screen flex items-center justify-center relative selection:bg-accent selection:text-white">
