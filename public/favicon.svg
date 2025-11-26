@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Arya Intrn logo">
+  <rect width="200" height="200" rx="28" fill="#ffffff"/>
+  <path d="M45 170L83 30h38l38 140h-28l-9-34H81l-8 34H45Z" fill="#0b172a"/>
+  <rect x="146" y="70" width="34" height="100" rx="10" fill="#0b172a"/>
+  <path d="M46 128c32 3 73-7 122-45" fill="none" stroke="#cba146" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="173" cy="44" r="15" fill="#cba146"/>
+</svg>
+
