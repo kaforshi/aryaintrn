@@ -63,6 +63,8 @@ if [ ! -f .env ]; then
     echo -e "${YELLOW}[5/8] Setup .env file...${NC}"
     if [ -f .env.example ]; then
         cp .env.example .env
+        chown $APP_USER:$APP_USER .env
+        chmod 640 .env
     else
         echo -e "${RED}Error: .env.example tidak ditemukan!${NC}"
         exit 1
@@ -76,6 +78,7 @@ if [ ! -f .env ]; then
     sed -i "s|APP_DEBUG=true|APP_DEBUG=false|g" .env
     sed -i "s|APP_URL=http://localhost|APP_URL=https://${DOMAIN}|g" .env
     sed -i "s|DB_CONNECTION=mysql|DB_CONNECTION=sqlite|g" .env
+    sed -i "s|DB_DATABASE=.*|DB_DATABASE=${APP_DIR}/database/database.sqlite|g" .env
     
     # Buat database SQLite jika belum ada
     if [ ! -f database/database.sqlite ]; then
