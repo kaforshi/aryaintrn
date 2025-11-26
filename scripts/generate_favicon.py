@@ -18,3 +18,4 @@ draw.ellipse((190, 40, 220, 70), fill=(203, 161, 70, 255))
 img.save("public/favicon.png")
 img.save("public/favicon.ico", sizes=[(256, 256), (128, 128), (64, 64), (32, 32), (16, 16)])
 
+

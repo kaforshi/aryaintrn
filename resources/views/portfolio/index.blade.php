@@ -159,6 +159,10 @@
 
         <!-- My Projects Section -->
         @if($projects->count() > 0)
+        @php
+            $projectLimit = 3;
+            $hasMoreProjects = $projects->count() > $projectLimit;
+        @endphp
         <div class="mt-4 bg-card/60 backdrop-blur-md border border-white/5 rounded-2xl p-5 relative overflow-hidden group hover:border-white/10 transition-all duration-300">
             <!-- Header Section -->
             <h2 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
@@ -169,9 +173,9 @@
             </h2>
 
             <!-- Projects Grid -->
-            <div class="grid grid-cols-1 gap-3">
-                @foreach($projects as $project)
-                <div class="group/project p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent/30 transition-all duration-300">
+            <div class="grid grid-cols-1 gap-3" id="projects-list">
+                @foreach($projects as $index => $project)
+                <div class="group/project p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-accent/30 transition-all duration-300 {{ $index >= $projectLimit ? 'hidden project-hidden' : '' }}">
                     <div class="flex justify-between items-start mb-2">
                         <h3 class="text-sm font-bold text-white group-hover/project:text-accent transition-colors flex-1 pr-2">{{ $project->title }}</h3>
                         <div class="flex items-center gap-2 flex-shrink-0">
@@ -202,6 +206,11 @@
                 </div>
                 @endforeach
             </div>
+            @if($hasMoreProjects)
+            <button id="projects-toggle" class="mt-4 w-full text-center text-xs font-semibold text-accent border border-accent/40 hover:border-accent/80 hover:bg-accent/10 rounded-lg py-2 transition-colors">
+                Show more
+            </button>
+            @endif
         </div>
         @endif
 
@@ -390,6 +399,21 @@
 
         initParticles();
         animateParticles();
+
+        // --- 5. Projects Show More ---
+        const projectToggle = document.getElementById('projects-toggle');
+        if (projectToggle) {
+            const hiddenProjects = document.querySelectorAll('.project-hidden');
+            let expanded = false;
+
+            projectToggle.addEventListener('click', () => {
+                expanded = !expanded;
+                hiddenProjects.forEach(el => {
+                    el.classList.toggle('hidden', !expanded);
+                });
+                projectToggle.textContent = expanded ? 'Show less' : 'Show more';
+            });
+        }
     </script>
 </body>
 </html>
